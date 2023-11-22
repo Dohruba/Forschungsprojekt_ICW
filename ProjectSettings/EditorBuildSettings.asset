@@ -4,7 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/GizmoPrototypes.unity
+    guid: 6ae00038e60db9345a0279ed221c5721
   m_configObjects:
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 7174af07311c9e448add51044b29e964, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 092f1479f24930a448b146e7aae9902f, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 211b69251ded1a74792959a0e17cdc55, type: 2}
