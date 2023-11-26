@@ -267,6 +267,7 @@ GameObject:
   m_Component:
   - component: {fileID: 128177581}
   - component: {fileID: 128177582}
+  - component: {fileID: 128177583}
   m_Layer: 0
   m_Name: ScaleGizmo
   m_TagString: Untagged
@@ -309,6 +310,18 @@ MonoBehaviour:
   targetGO: {fileID: 0}
   isGrabbed: 0
   centerTransform: {fileID: 0}
+--- !u!210 &128177583
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 128177580}
+  m_Enabled: 1
+  m_SortingLayerID: -816734059
+  m_SortingLayer: 1
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
 --- !u!1 &139240348
 GameObject:
   m_ObjectHideFlags: 0
@@ -2114,7 +2127,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 58ecc2ec00bc99b4a9a1f23997c3a35f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
