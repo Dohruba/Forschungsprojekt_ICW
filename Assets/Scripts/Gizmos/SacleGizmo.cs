@@ -2,28 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[ExecuteInEditMode]
-public class GizmoRotation : MonoBehaviour
+
+public class SacleGizmo : MonoBehaviour
 {
     [SerializeField]
     private GameObject targetGO;
     private List<GameObject> children = new List<GameObject>();
     [SerializeField]
     public bool isGrabbed = false;
+    public Transform centerTransform;
 
 
     private void Start()
     {
         transform.rotation = Quaternion.identity;
-        foreach(Transform child in transform)
+        foreach (Transform child in transform)
         {
             children.Add(child.gameObject);
+            if (child.GetComponent<ScaleCenter>())
+                centerTransform = child.transform;
         }
     }
     private void FixedUpdate()
     {
-        if(targetGO!= null)
-        targetGO.transform.rotation = transform.rotation;
+        if (targetGO != null)
+            targetGO.transform.localScale = transform.localScale;
     }
 
     public void ResetAxis()
@@ -42,13 +45,12 @@ public class GizmoRotation : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         SetIsGrabbed(false);
-        
+
     }
     public void SetTargetGO(GameObject target)
     {
         Transform targetTransform = target.transform;
         transform.position = targetTransform.position;
-        transform.rotation = targetTransform.rotation;
         ResetAxis();
         targetGO = target;
     }

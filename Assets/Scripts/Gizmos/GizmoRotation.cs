@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class SacleGizmo : MonoBehaviour
+[ExecuteInEditMode]
+public class GizmoRotation : MonoBehaviour
 {
     [SerializeField]
     private GameObject targetGO;
@@ -15,21 +15,22 @@ public class SacleGizmo : MonoBehaviour
     private void Start()
     {
         transform.rotation = Quaternion.identity;
-        foreach (Transform child in transform)
+        foreach(Transform child in transform)
         {
             children.Add(child.gameObject);
         }
     }
     private void FixedUpdate()
     {
-        if (targetGO != null)
-            targetGO.transform.localScale = transform.localScale;
+        if(targetGO!= null)
+        targetGO.transform.rotation = transform.rotation;
     }
 
     public void ResetAxis()
     {
         foreach (GameObject gameObject in children)
         {
+            if(gameObject.GetComponent<RotationAxis>())
             gameObject.GetComponent<RotationAxis>().ResetRotation();
         }
     }
@@ -42,12 +43,13 @@ public class SacleGizmo : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         SetIsGrabbed(false);
-
+        
     }
     public void SetTargetGO(GameObject target)
     {
         Transform targetTransform = target.transform;
         transform.position = targetTransform.position;
+        transform.rotation = targetTransform.rotation;
         ResetAxis();
         targetGO = target;
     }

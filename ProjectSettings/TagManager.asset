@@ -38,6 +38,12 @@ TagManager:
   - XR Simulation
   - 
   m_SortingLayers:
+  - name: OverlayTest
+    uniqueID: 3549010121
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Overlay
+    uniqueID: 3478233237
     locked: 0
