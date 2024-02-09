@@ -45,7 +45,7 @@
         "com.unity.render-pipelines.universal": "12.1.6",
         "com.unity.shadergraph": "12.1.6"
       },
-      "hash": "a55aea52c1f025034d308d71a4396b26fb287500"
+      "hash": "1f3f267dbbd33771cb8c4d5e1eba34ecd33757f5"
     },
     "com.toph.scene-synchronizer": {
       "version": "https://github.com/XRCDEditor/UnityCDSSPackage.git#upm",
@@ -55,7 +55,7 @@
         "com.unity.nuget.newtonsoft-json": "3.0.2",
         "com.unity.textmeshpro": "3.0.6"
       },
-      "hash": "cac0aad9f24a663edf8743c589473518e72f7084"
+      "hash": "86feb849dca0bb54e656b1ae586175dda39dfe01"
     },
     "com.unity.burst": {
       "version": "1.8.9",
@@ -344,14 +344,14 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "141b4e1e31966242a6fb7c495b52ac3d1221bc75"
+      "hash": "d1ef610e9fe3ad0b490cce91594449fc0af809a6"
     },
     "jknepel.simpleunitynetworking": {
       "version": "https://github.com/XRCDEditor/SimpleUnityNetworking.git#upm",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "8b68c5a4e8ae35e0eabddb887094509f6bfaf7eb"
+      "hash": "3c16053a86cd6947cba7328405af0bf2396ad247"
     },
     "org.mixedrealitytoolkit.accessibility": {
       "version": "file:MixedReality/org.mixedrealitytoolkit.accessibility-1.0.0-pre.18.tgz",

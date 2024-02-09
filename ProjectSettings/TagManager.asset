@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Widget
+  - Environment
   layers:
   - Default
   - TransparentFX
@@ -12,8 +14,8 @@ TagManager:
   - Water
   - UI
   - 
-  - 
-  - 
+  - Always On Top
+  - MRTK
   - 
   - 
   - 
@@ -38,7 +40,7 @@ TagManager:
   - XR Simulation
   - 
   m_SortingLayers:
-  - name: OverlayTest
+  - name: Background
     uniqueID: 3549010121
     locked: 0
   - name: Default
@@ -46,4 +48,7 @@ TagManager:
     locked: 0
   - name: Overlay
     uniqueID: 3478233237
+    locked: 0
+  - name: Widget
+    uniqueID: 2530435121
     locked: 0
