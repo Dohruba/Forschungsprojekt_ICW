@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [ExecuteInEditMode]
-public class GizmoRotation : MonoBehaviour
+public class GizmoRotation : ObjectControlWidget
 {
-    [SerializeField]
-    private GameObject targetGO;
     private List<GameObject> children = new List<GameObject>();
     [SerializeField]
     public bool isGrabbed = false;
@@ -45,12 +43,13 @@ public class GizmoRotation : MonoBehaviour
         SetIsGrabbed(false);
         
     }
-    public void SetTargetGO(GameObject target)
+    public void SetTarget(GameObject target)
     {
         Transform targetTransform = target.transform;
         transform.position = targetTransform.position;
         transform.rotation = targetTransform.rotation;
         ResetAxis();
         targetGO = target;
+        Debug.Log("Rotation set target");
     }
 }

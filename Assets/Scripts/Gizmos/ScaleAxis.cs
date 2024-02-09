@@ -1,26 +1,55 @@
+using MixedReality.Toolkit.SpatialManipulation;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ScaleAxis : MonoBehaviour
 {
-
+    public float modificator = 10;
     [SerializeField]
-    private int axis;
-    private SacleGizmo scaleGizmo;
+    private bool isGrabbed = false;
+    [SerializeField]
+    private Vector3 originalPos;
+    private Vector3 originalPosB;
+    [SerializeField]
+    private Transform targetGo;
+    static Vector3 currentScale;
 
-    private void Start()
+    private void FixedUpdate()
     {
-        scaleGizmo = transform.parent.GetComponent<SacleGizmo>();
+        if (targetGo != null && isGrabbed)
+        {
+            IncreaseScaleInAxis();
+        }
     }
-    // Update is called once per frame
-    void Update()
+    public void SetIsGrabbed(bool grabbed)
     {
-        if (scaleGizmo.isGrabbed)
-            transform.localScale = new Vector3(
-                transform.localScale.x,
-                transform.localScale.y,
-                scaleGizmo.centerTransform.localScale.z
-                );
+        isGrabbed = grabbed;
+        if (isGrabbed)
+        {
+            originalPos = transform.position;
+            originalPosB = transform.localPosition;
+        }
+    }
+
+    private void IncreaseScaleInAxis()
+    {
+        targetGo.transform.localScale =
+            currentScale + modificator * (transform.localPosition - originalPosB);
+    }
+
+    public void ResetPosition()
+    {
+        currentScale = targetGo.transform.localScale;
+        transform.position = originalPos;
+    }
+
+
+    public void SetTarget()
+    {
+        SacleGizmo parent = transform.parent.GetComponent<SacleGizmo>();
+        targetGo = parent.IsGlobal ? parent.Container.transform : parent.TargetGO.transform;
+        currentScale = targetGo.transform.localScale;
     }
 }

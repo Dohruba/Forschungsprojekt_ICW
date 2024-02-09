@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000002, guid: 64edec74fa23a4f4eab3373e5107ff28, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -156,10 +156,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bb1dfc1dfbf4f44783ea6d4bf216662, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncDelay: 0.01
-  clientVisualizer: {fileID: 6106676318061003659, guid: 50aa1bbdf9c3eac459c8e97ce858b662, type: 3}
-  lerp: 0
-  showDebugMessages: 0
 --- !u!4 &629215795
 Transform:
   m_ObjectHideFlags: 0
@@ -201,14 +197,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abe5566a917943240a5e994b07b3e9e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncDelay: 0.05
-  exportSceneName: GizmoPrototypes
-  importSceneName: GizmoPrototypes
-  importSameAsExport: 1
-  keepSyncScenes: 1
-  saveSyncScenes: 1
-  cleanSceneOnDisconnect: 1
-  showDebugMessages: 0
 --- !u!114 &629215798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,7 +209,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78608078dbc9d3d40ae89adec484abfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NetworkConfiguration: {fileID: 0}
 --- !u!114 &629215799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,40 +224,8 @@ MonoBehaviour:
   connect: 0
   checkServers: 0
   checkisConnected: 0
---- !u!1 &640562169
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 640562170}
-  m_Layer: 0
-  m_Name: ClientVisualizer Parent
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &640562170
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 640562169}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 629215795}
-  - {fileID: 640562170}

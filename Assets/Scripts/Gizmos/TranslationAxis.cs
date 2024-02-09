@@ -9,12 +9,12 @@ public class TranslationAxis : MonoBehaviour
     private int axis;
     private MoveAxisConstraint[] constraints;
     static bool isGizmoGrabbed = false;
-    void Start()
+    protected void Start()
     {
         constraints = transform.parent.GetComponents<MoveAxisConstraint>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected void OnTriggerEnter(Collider other)
     {
         Debug.Log("Trigger entered");
         if (isGizmoGrabbed) return;
@@ -24,7 +24,7 @@ public class TranslationAxis : MonoBehaviour
         }
     }
 
-    public void SerIsGizmoGrabbed(bool grabbed)
+    public void SetIsGizmoGrabbed(bool grabbed)
     {
         isGizmoGrabbed = grabbed;
     }

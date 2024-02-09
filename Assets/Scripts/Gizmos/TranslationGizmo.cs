@@ -2,16 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TranslationGizmo : MonoBehaviour
+public class TranslationGizmo : ObjectControlWidget
 {
-
-    [SerializeField]
-    private GameObject targetGO;
-
-
+    //For local set moveaxisconstraint uselocalspaceforconstaraint to true
     private void Start()
     {
-        SetTargetGO(targetGO);
+        if(targetGO != null)
+        SetTarget(targetGO);
     }
 
     private void FixedUpdate()
@@ -21,10 +18,12 @@ public class TranslationGizmo : MonoBehaviour
             targetGO.transform.position = transform.position;
         }
     }
-    public void SetTargetGO(GameObject target)
+    public void SetTarget(GameObject target)
     {
         Transform targetTransform = target.transform;
         transform.position = targetTransform.position;
         targetGO = target;
+        Debug.Log("Trans set target");
+
     }
 }
