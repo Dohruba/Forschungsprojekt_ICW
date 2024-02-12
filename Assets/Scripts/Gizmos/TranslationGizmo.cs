@@ -18,7 +18,7 @@ public class TranslationGizmo : ObjectControlWidget
             targetGO.transform.position = transform.position;
         }
     }
-    public void SetTarget(GameObject target)
+    new public void SetTarget(GameObject target)
     {
         Transform targetTransform = target.transform;
         transform.position = targetTransform.position;

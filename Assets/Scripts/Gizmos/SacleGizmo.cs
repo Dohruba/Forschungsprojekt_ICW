@@ -45,7 +45,7 @@ public class SacleGizmo : ObjectControlWidget
             container.transform.localScale = (centerTransform.localScale - Vector3.one) + targetCurrentScale;
         }
     }
-    public void SetTarget(GameObject target)
+    new public void SetTarget(GameObject target)
     {
         targetGO = target;
         SetUpContainer(IsGlobal);

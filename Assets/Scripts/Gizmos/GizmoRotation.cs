@@ -20,8 +20,8 @@ public class GizmoRotation : ObjectControlWidget
     }
     private void FixedUpdate()
     {
-        if(targetGO!= null)
-        targetGO.transform.rotation = transform.rotation;
+        if (targetGO != null)
+            targetGO.transform.rotation = transform.rotation;
     }
 
     public void ResetAxis()
@@ -43,7 +43,7 @@ public class GizmoRotation : ObjectControlWidget
         SetIsGrabbed(false);
         
     }
-    public void SetTarget(GameObject target)
+    new public void SetTarget(GameObject target)
     {
         Transform targetTransform = target.transform;
         transform.position = targetTransform.position;

@@ -1,3 +1,4 @@
+using MixedReality.Toolkit.Input;
 using MixedReality.Toolkit.SpatialManipulation;
 using System.Collections;
 using System.Collections.Generic;
@@ -24,13 +25,14 @@ public class InteractionManager : MonoBehaviour
     [SerializeField]
     private TextMeshPro transformUItext;
 
-    //[SerializeField]
-    //private TouchScreenKeyboard keyboard;
+    public GameObject SelectedGameObject { get => selectedGameObject;}
+    public WidgetEnum SelectedWidget { get => selectedWidget;}
+    public GameObject[] Widgets { get => widgets;}
 
-    //[SerializeField]
-    //private TextMeshProUGUI inputField;
-
-
+    private void Awake()
+    {
+        selectedWidget = WidgetEnum.None;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -49,18 +51,12 @@ public class InteractionManager : MonoBehaviour
         {
             TryGetNewScene();
         }
-
-        //if (keyboard != null)
-        //{
-        //    inputField.text = keyboard.text;
-        //}
     }
     public void ScanImportedSceneObjects()
     {
         int updatedSceneCount = SceneManager.sceneCount;
-        //if (updatedSceneCount == sceneCount) return;
+        //if (updatedSceneCount == sceneCount) return; //uncomment when connection works
         int index = sceneCount - 1;
-        Debug.Log(SceneManager.GetSceneAt(index).name);
         importedSceneObjects = SceneManager.GetSceneAt(index).GetRootGameObjects();
     }
 
@@ -91,7 +87,8 @@ public class InteractionManager : MonoBehaviour
 
     public void ActivateWidget(int type)
     {
-        foreach (GameObject go in widgets)
+        if (selectedGameObject == null) return;
+        foreach (GameObject go in Widgets)
         {
             Debug.Log((WidgetEnum)type);
             bool isType = go.GetComponent<ObjectControlWidget>().WidgetType == (WidgetEnum) type;
@@ -136,13 +133,14 @@ public class InteractionManager : MonoBehaviour
     {
         yield return new WaitUntil(() => ScanNewScene);
         ScanImportedSceneObjects();
+        ScanNewScene = false;
         if (importedSceneObjects.Length > 0)
             MakeIncomingObjectsSelectable();
     }
 
     public void TryGetNewScene()
     {
-        ScanNewScene = !ScanNewScene;
+        ScanNewScene = true;
     }
 
     private void MakeIncomingObjectsSelectable()
@@ -170,12 +168,6 @@ public class InteractionManager : MonoBehaviour
             go.SetActive(true);
         }
     }
-
-
-    //public void OpenSystemKeyboard()
-    //{
-    //    keyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.NumbersAndPunctuation, false, false, false, false);
-    //}
 
     #endregion
 
